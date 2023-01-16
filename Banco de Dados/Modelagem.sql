@@ -1,0 +1,6 @@
+CREATE TABLE tbl_pessoa(
+id INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(150),
+cpf VARCHAR(150),
+data_nascimento DATE
+)
