@@ -1,21 +1,21 @@
 <?php
-
-/* define('HOST', '127.0.0.1');
-define('USER', 'root');
-define('PASS', '');
-define('BASE', 'treinamento_daila');
-
-$conexao = new MySQLi(HOST, USER, PASS, BASE,3308);
-if(!$conexao) {
-    echo 'Deu ruim parça!';
-}
- */
 class PessoaModel
 {
-    public $id, $nome, $data_nascimento;
-
+    public $id, $nome, $cpf, $data_nascimento;
+    public $rows;
     public function save()
     {
-
+        include 'DAO/PessoaDAO.php';
+        $dao = new PessoaDAO();
+        $dao->insert($this);
     }
+
+    public function getAllRows()
+    {
+        include 'DAO/PessoaDAO.php';
+        $dao = new PessoaDAO();
+        $this->rows = $dao->select();
+        
+    }
+
 }
