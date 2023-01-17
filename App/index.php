@@ -2,6 +2,7 @@
 
 include 'Controllers/PessoaController.php';
 ini_set ( 'display_errors' , 1); error_reporting (E_ALL);
+#$caminho_servidor = '/treinamento/Daila/php/MVC_estudo';
 $caminho_servidor = '/MVC';
 $url = parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH); # 
 
