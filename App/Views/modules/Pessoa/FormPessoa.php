@@ -12,7 +12,7 @@
 <body>
     <fieldset>
         <legend>Cadastro de Pessoa</legend>
-        <form method="post" action="/MVC/pessoa/form/save">
+        <form method="post" action="/treinamento/Daila/php/MVC_estudo/pessoa/form/save">
 
             <label for= "nome">Nome:</label>
             <input type="text" name="nome" id="nome">
