@@ -1,24 +1,28 @@
 <?php
 
 include 'Controllers/PessoaController.php';
-
-$caminho_servidor = '/MVC/App/';
+ini_set ( 'display_errors' , 1); error_reporting (E_ALL);
+$caminho_servidor = '/MVC';
 $url = parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH); # 
 
+echo $url;
 
 switch($url)
 {
-    case $caminho_servidor.'':
+    case $caminho_servidor.'/':
         echo "pagina inicial";
     break;
 
-    case $caminho_servidor.'pessoa':
+    case $caminho_servidor.'/pessoa':
         PessoaController::index();
     break;
-    case $caminho_servidor.'form':
+    case $caminho_servidor.'/pessoa/form':
         PessoaController::form();
     break;
+    case $caminho_servidor.'/pessoa/form/save':
+        PessoaController::save();
+    break;
     default:
-        echo "boiando";
+        echo "boiando aqui";
     break;
 }
