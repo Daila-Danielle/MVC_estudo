@@ -47,5 +47,10 @@ class PessoaDAO
         return $results;
     }
 
+    public function delete(PessoaModel $model)
+    {
+        
+    }
+
 
 }
