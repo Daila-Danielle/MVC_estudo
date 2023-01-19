@@ -13,6 +13,7 @@
             <th>NOME</th>
             <th>CPF</th>
             <th>DATA NASCIMENTO</th>
+            <th>AÇÕES</th>
         </tr>
 <?php foreach($model->rows as $item): ?>
         <tr>
@@ -20,8 +21,20 @@
             <td><?= $item->nome ?></td>
             <td><?= $item->cpf ?></td>
             <td><?= $item->data_nascimento ?></td>
+            <td>
+                <a href="/treinamento/Daila/php/MVC_estudo/pessoa/form?id=<?=$item->id?>">Editar
+                </a>
+                <a href="/treinamento/Daila/php/MVC_estudo/pessoa/delete?id=<?=$item->id?>">Excluir
+                </a>
+            </td>
         </tr>
         <?php endforeach ?>
+
+        <?php if(count($model->rows)==0): ?>
+            <tr>
+                <td colspan="5">Nenhum registro encontrado</td>
+            </tr>
+        <?php endif ?>
     </table>
 </body>
 </html>
