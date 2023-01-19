@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Controllers;
+
+use App\Models\PessoaModel;
 class PessoaController
 {
     /**
@@ -8,8 +11,7 @@ class PessoaController
      */
     public static function index()
     {
-        include 'Models/PessoaModel.php';
-
+       
         $model = new PessoaModel();
         $model->getAllRows();
         include 'Views/modules/Pessoa/ListaPessoa.php';
@@ -22,6 +24,12 @@ class PessoaController
      */
     public static function form()
     {
+        
+        $model = new PessoaModel();
+
+        if(isset($_GET['id']))
+            $model = $model->getById( (int) $_GET['id']);
+        
         include 'Views/modules/Pessoa/FormPessoa.php';
     }
 
@@ -33,10 +41,9 @@ class PessoaController
      */
     public static function save()
     {
-        include 'Models/PessoaModel.php';
-
+        
         $model = new PessoaModel();
-
+        $model->id = (int) $_POST['id'];
         $model->nome = $_POST['nome'];
         $model->cpf = $_POST['cpf'];
         $model->data_nascimento = $_POST['data_nascimento'];
@@ -45,6 +52,15 @@ class PessoaController
         
         header("Location: /treinamento/Daila/php/MVC_estudo/pessoa");
         
+    }
+
+    public static function delete()
+    {
+        
+        $model = new PessoaModel();
+        $model->delete( (int) $_GET['id']);
+        header("Location: /treinamento/Daila/php/MVC_estudo/pessoa");
+
     }
 
 }

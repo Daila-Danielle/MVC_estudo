@@ -13,15 +13,16 @@
     <fieldset>
         <legend>Cadastro de Pessoa</legend>
         <form method="post" action="/treinamento/Daila/php/MVC_estudo/pessoa/form/save">
+            <input type="hidden" value="<?=$model->id ?>" name="id">
 
             <label for= "nome">Nome:</label>
-            <input type="text" name="nome" id="nome">
+            <input value="<?=$model->nome ?>" type="text" name="nome" id="nome">
 
             <label>CPF:</label>
-            <input type="text" name="cpf" id="cpf">
+            <input value="<?=$model->cpf ?>" type="text" name="cpf" id="cpf">
 
             <label>Data Nascimento:</label>
-            <input type="date" name="data_nascimento" id="data_nascimento">
+            <input value="<?=$model->data_nascimento ?>" type="date" name="data_nascimento" id="data_nascimento">
 
             <button type="submit">Salvar</button>
 
