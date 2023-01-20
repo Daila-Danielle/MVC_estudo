@@ -2,11 +2,17 @@
 
 spl_autoload_register(function ($nome_da_classe){
     
-    echo "<br />"."Tentou dar include de : ".$nome_da_classe."<br />";
+    $arquivo = BASEDIR . $nome_da_classe . '.php';
+    if(file_exists($arquivo))
+    {
+        include $arquivo;
+    } else
+        exit("Arquivo não encontrado. Arquivo ". $arquivo);
+
 
     //echo dirname(__FILE__);
     
-    include '.../'.$nome_da_classe.'.php'; 
+   
     
     
 });
