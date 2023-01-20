@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\PessoaModel;
-class PessoaController
+class PessoaController extends Controller
 {
     /**
      * Método para exibir a lista de pessoas
@@ -14,7 +14,8 @@ class PessoaController
        
         $model = new PessoaModel();
         $model->getAllRows();
-        include 'Views/modules/Pessoa/ListaPessoa.php';
+        
+        parent::render('Pessoa/ListaPessoa',$model);
         
     }
 
@@ -30,7 +31,8 @@ class PessoaController
         if(isset($_GET['id']))
             $model = $model->getById( (int) $_GET['id']);
         
-        include 'Views/modules/Pessoa/FormPessoa.php';
+        parent::render('Pessoa/FormPessoa',$model);
+       // include 'Views/modules/Pessoa/FormPessoa.php';
     }
 
     /**
